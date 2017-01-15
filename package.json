@@ -6,11 +6,11 @@
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build": "node build/build.js",
+    "build": "node build/build.js"
   },
   "dependencies": {
     "react": "^15.4.2",
-    "react-dom": "^15.4.2",
+    "react-dom": "^15.4.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
