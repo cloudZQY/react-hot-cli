@@ -24,6 +24,14 @@ exports.cssLoaders = function (options) {
       }
       return loader + (options.sourceMap ? extraParamChar + 'sourceMap' : '')
     }).join('!')
+
+    // Extract CSS when that option is specified
+    // (which is the case during production build)
+    if (options.extract) {
+      return ExtractTextPlugin.extract('style-loader', sourceLoader)
+    } else {
+      return ['style-loader', sourceLoader].join('!')
+    }
   }
 
   return {

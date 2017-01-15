@@ -31,20 +31,10 @@ module.exports = {
     fallback: [path.join(__dirname, '../node_modules')]
   },
   module: {
-    // preLoaders: [
-    //   {
-    //     test: /\.js[x]?$/,
-    //     loader: 'eslint',
-    //     include: [
-    //       path.join(projectRoot, 'src')
-    //     ],
-    //     exclude: /node_modules/
-    //   }
-    // ],
     loaders: [
       {
         test: /\.js[x]?$/,
-        loaders: ['babel'],
+        loader: 'babel',
         include: [
           path.join(projectRoot, 'src')
         ],
@@ -72,7 +62,12 @@ module.exports = {
       }
     ]
   },
-  eslint: {
-    formatter: require('eslint-friendly-formatter')
-  },
+  react: {
+    loaders: utils.cssLoaders({ sourceMap: useCssSourceMap }),
+    postcss: [
+      require('autoprefixer')({
+        browsers: ['last 2 versions']
+      })
+    ]
+  }
 }
